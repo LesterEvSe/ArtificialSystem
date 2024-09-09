@@ -7,6 +7,7 @@
 #include "ICore.h"
 #include "BannedFileExtensionsHandler.h"
 #include <map>
+#include <algorithm>
 
 namespace Commands
 {

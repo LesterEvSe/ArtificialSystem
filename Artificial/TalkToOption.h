@@ -59,6 +59,9 @@ namespace Commands
 			}
 
 			FullPath str_path = RelativePathCreator::combine(_command.get("path"), _command.get("1"));
+			if (!disk.is_exists(str_path.disk_path()))
+				throw CommandException("(TalkToOption) Path " + str_path.full_path_str() + " does not exist");
+
 			const auto& str = Story::DynamicEventsHandler::s_dialogHandler.get(str_path.full_path_str());
 			if (str == "")
 				ptr->print_main("She was unable to start a dialog...\n");
